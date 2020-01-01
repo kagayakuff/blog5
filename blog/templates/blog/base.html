@@ -5,11 +5,9 @@
     <title>{% block title %}Blog{% endblock %}</title>
     {% load static %}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.30/css/uikit.min.css"/>
-    <link rel="stylesheet" href="{% static 'blog/css/font-awesome.min.css' %}"/>
     {% block beforehead %}{% endblock %}
 
 </head>
-{% load account %}
 <body>
 <div class="uk-navbar-container">
     <div class="uk-container uk-container-expand">
@@ -17,30 +15,11 @@
             <div class="uk-navbar-left">
                 <ul class="uk-navbar-nav">
                     <li><a href="{% url 'blog:index' %}">Blog</a></li>
-                    <li><a href="{% url 'blog:tag' %}">Tag</a></li>
-                    <li><a href="{% url 'blog:category' %}">Category</a></li>
-                    <li><a href="{% url 'blog:archive' %}">Achieve</a></li>
+                    <li><a href="#">Tag</a></li>
+                    <li><a href="#">Category</a></li>
+                    <li><a href="#">Achieve</a></li>
                 </ul>
             </div>
-
-            <div class="uk-navbar-right">
-                <ul class="uk-navbar-nav">
-                    {% if user.is_authenticated %}
-                        <li>
-                            <a href="{% url 'blog:profile' %}">{% user_display user %}</a>
-                            <div class="uk-navbar-dropdown">
-                                <ul class="uk-nav uk-navbar-dropdown-nav">
-                                    <li><a href="{% url 'account_logout' %}">Logout</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                    {% else %}
-                        <li><a href="{% url 'account_login' %}">Login</a></li>
-                        <li><a href="{% url 'account_signup' %}">SignUp</a></li>
-                    {% endif %}
-                </ul>
-            </div>
-
         </nav>
     </div>
 </div>
@@ -49,6 +28,5 @@
 <script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.30/js/uikit.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.30/js/uikit-icons.min.js"></script>
-{% block afterbody %}{% endblock %}
 </body>
 </html>
